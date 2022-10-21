@@ -2,9 +2,17 @@
 
 async function displayData(){
     const data = await getData();
-    console.log(data);
-    const filteredData = organizeData(data);
-    console.log(filteredData);
+    data[0].forEach(user => {
+        console.log(user);
+        var entry = document.createElement("button");
+        entry.className = "entry";
+        var content = document.createTextNode(user.name);
+        entry.onclick = function(){
+            organizeData([user, data[1]]);
+        };
+        entry.appendChild(content);
+        document.getElementById("userCol").appendChild(entry);
+    })
 }
 async function getData(){
     const users = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -15,17 +23,24 @@ async function getData(){
 }
 
 function organizeData(data){
-    data[0].forEach(user => {
-        user.posts = data[1].filter(function (post) {
-            if(post.userId ===  user.id){
-                return true;
-            }
-            return false;
-        })
+    data[0].posts = data[1].filter(function (post) {
+        if(post.userId ===  data[0].id){
+            return true;
+        }
+        return false;
     })
-    return data;
+    document.getElementById("postCol").innerHTML = '';
+    data[0].posts.forEach(post =>{
+        var entry = document.createElement("div");
+        var title = document.createElement("h1");
+        title.innerHTML = post.title;
+        entry.appendChild(title);
+        var postText = document.createElement("p");
+        postText.innerHTML = post.body;
+        entry.appendChild(postText);
+
+        document.getElementById("postCol").appendChild(entry);
+    })    
 }
 
-(async () => {
-    console.log(await displayData())
-})()
+displayData();

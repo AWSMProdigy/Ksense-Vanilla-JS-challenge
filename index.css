@@ -1,0 +1,17 @@
+.flexBox{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+#userCol{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.entry{
+
+}
