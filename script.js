@@ -15,7 +15,7 @@ async function getData(){
 }
 
 function organizeData(data){
-    data[0].foreach(user => {
+    data[0].forEach(user => {
         user.posts = data[1].filter(function (post) {
             if(post.userId ===  user.id){
                 return true;
@@ -23,6 +23,7 @@ function organizeData(data){
             return false;
         })
     })
+    return data;
 }
 
 (async () => {
