@@ -4,7 +4,6 @@ async function displayData(){
     const data = await getData();
     // Create element for every user gathered and append them to my user row
     data[0].forEach(user => {
-        console.log(user);
         var entry = document.createElement("button");
         entry.className = "entry";
         var content = document.createTextNode(user.name);
