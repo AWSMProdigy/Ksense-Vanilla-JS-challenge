@@ -1,17 +1,61 @@
+html, body{
+    margin: 0;
+}
+
 .flexBox{
     display: flex;
     justify-content: center;
     flex-direction: column;
-
+    align-items: center;
 }
 
 #userCol{
     display: flex;
-    justify-content: start;
-    flex-direction: column;
+    justify-content: space-between;
+    flex-direction: row;
     width: fit-content;
 }
 
-.entry{
-
+#postCol{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 80%;
+    padding: 10px;
 }
+
+#postCol > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid orange;
+}
+
+.entry{
+    all: unset;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0 5px;
+    background-color: orange;
+    border: 2px solid rgb(13, 28, 161);
+    transition: .2s;
+    box-shadow: 2px 2px 2px grey;
+}
+
+.entry:hover{
+    background-color: rgb(13, 28, 161);
+    color: white;
+    border: 2px solid orange;
+}
+
+.headerBar{
+    background-color: rgb(13, 28, 161);
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
